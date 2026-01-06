@@ -240,26 +240,20 @@ a, .me, .meOpp, .btn {
 
 .pub{
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 14px;
+  grid-template-columns: 220px 1fr; /* <- make this bigger */
+  gap: 16px;
   align-items: start;
-  margin: 14px 0 18px;
 }
-
 .pub-cover{
   display: block;
-  text-decoration: none;
 }
 
 .pub-cover img{
-  width: 100%;
+  display: block;
+  width: 100%;     /* <- this is the key */
   height: auto;
   border: 1px solid var(--rule);
   border-radius: 10px;
-  /* makes random page aspect ratios look consistent */
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  background: transparent;
 }
 
 .pub-text{ min-width: 0; } /* prevents overflow */
