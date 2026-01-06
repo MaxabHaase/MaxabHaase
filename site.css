@@ -225,3 +225,13 @@ footer{
   color: var(--accentOpp);
   font-weight: 800;
 }
+
+/* smooth color changes */
+a, .me, .meOpp, .btn {
+  transition: color 1.2s linear, background-color 1.2s linear, border-color 1.2s linear;
+}
+
+/* smooth ASCII recolor */
+.ch{
+  transition: color 1.2s linear;
+}
