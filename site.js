@@ -1,12 +1,12 @@
 // Palette used for ASCII glyphs AND cycling link color
 const PALETTE = [
-  "#ff4d4d",
-  "#ff9f1c",
-  "#ffd60a",
-  "#2ec4b6",
-  "#3a86ff",
-  "#8338ec",
-  "#ff006e",
+  "#B91C1C", // red
+  "#C2410C", // orange
+  "#A16207", // amber/gold (replaces bright yellow) — readable on white
+  "#15803D", // green
+  "#0F766E", // teal
+  "#0E7490", // cyan
+  "#334155", // slate (neutral accent)
 ];
 
 function invertHex(hex) {
