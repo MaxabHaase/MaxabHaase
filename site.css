@@ -267,3 +267,19 @@ a, .me, .meOpp, .btn {
     max-width: 220px;
   }
 }
+#logoBtn{
+  border:0;
+  background:transparent;
+  padding:0;
+  cursor:pointer;
+  text-align:left;
+  color: inherit;
+  font: inherit;
+}
+
+#logoAnim{
+  display:block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;   /* optional */
+}
