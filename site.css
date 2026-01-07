@@ -1,8 +1,8 @@
 :root{
-  --bg: #F2F0EF;
+  --bg: #F7F3EE;
   --fg: #111111;
   --muted: #666666;
-  --rule: #c9c9c9;
+  --rule: #cfc7bf;
 
   /* cycles on logo click */
   --accent: #2A5DB0;
