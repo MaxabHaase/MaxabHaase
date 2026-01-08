@@ -215,3 +215,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const img = document.getElementById("censtruct");
+  if (!img) return;
+
+  // respect reduced motion
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const frames = ["./logo_frames/CENStruct-01.png", "./logo_frames/CENStruct-02.png"];
+
+  // preload
+  frames.forEach((src) => { const im = new Image(); im.src = src; });
+
+  let i = 0;
+  const MS = 1200; // <-- change frequency here (ms)
+
+  setInterval(() => {
+    i = (i + 1) % frames.length;
+    img.src = frames[i];
+  }, MS);
+});
