@@ -235,3 +235,24 @@ document.addEventListener("DOMContentLoaded", () => {
     img.src = frames[i];
   }, MS);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const img = document.getElementById("kinstruct");
+  if (!img) return;
+
+  // respect reduced motion
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const frames = ["./logo_frames/KinStruct-01.png", "./logo_frames/KinStruct-02.png"];
+
+  // preload
+  frames.forEach((src) => { const im = new Image(); im.src = src; });
+
+  let i = 0;
+  const MS = 1200; // <-- change frequency here (ms)
+
+  setInterval(() => {
+    i = (i + 1) % frames.length;
+    img.src = frames[i];
+  }, MS);
+});
