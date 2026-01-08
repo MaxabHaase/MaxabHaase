@@ -255,45 +255,26 @@ function makeFramePlayer(imgEl, frames, fps = 3) {
     else start();
   }
 
-  // pause if tab hidden
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) stop();
-  });
-
-  return { start, stop, toggle, setFrame: (idx) => {
-    i = ((idx % frames.length) + frames.length) % frames.length;
-    imgEl.src = frames[i];
-  }};
+  return {
+    start,
+    stop,
+    toggle,
+    setFrame: (idx) => {
+      i = ((idx % frames.length) + frames.length) % frames.length;
+      imgEl.src = frames[i];
+    }
+  };
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const imgEl = document.getElementById("logoAnim");
-  const logoBtn = document.getElementById("logoBtn");
-  if (!imgEl || !logoBtn) return;
+  // NOTE:
+  // - #logoBtn is your ASCII logo button (kept as before for accent cycling)
+  // - #animBtn/#animImg is the separate JPG animation button+image
+  const animBtn = document.getElementById("animBtn");
+  const animImg = document.getElementById("animImg");
+  if (!animBtn || !animImg) return;
 
   // respect reduce-motion: keep it static
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce
 
-  // 12 frames, slow
-  const FRAME_COUNT = 12;
-  const frames = Array.from({ length: FRAME_COUNT }, (_, idx) => {
-    const n = String(idx + 1).padStart(2, "0"); // 01..12
-    return `./logo_frames/Untitled-4-${n}.jpg`;
-  });
-
-  preloadFrames(frames);
-
-  // ensure first frame shown initially
-  imgEl.src = frames[0];
-
-  // 2–4 fps feels “slow” for 12 frames. Try 3.
-  const player = makeFramePlayer(imgEl, frames, 3);
-
-  logoBtn.addEventListener("click", () => {
-    player.toggle();
-
-    // If you also want the click to cycle your accent color, keep this:
-    // tickCycle?.();
-  });
-});
 
