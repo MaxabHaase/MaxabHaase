@@ -285,18 +285,21 @@ a, .me, .meOpp, .btn {
 }
 
 #animBtn{
-  border: 0;
   background: transparent;
+  border: 0;
   padding: 0;
+  margin: 0;
   cursor: pointer;
-  margin-top: 10px; /* adjust where you want it */
+  color: inherit;
+  font: inherit;
+  line-height: 0; /* removes extra button height around the image */
 }
 
-#animImg{
-  display: block;
-  width: 160px;      /* set the size you want */
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  border: 1px solid var(--rule);
+#animBtn:focus{
+  outline: none;
+}
+
+#animBtn:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
