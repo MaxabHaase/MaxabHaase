@@ -277,8 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 12 frames, slow
   const FRAME_COUNT = 12;
   const frames = Array.from({ length: FRAME_COUNT }, (_, idx) => {
-    const n = String(idx + 1).padStart(4, "0");
-    return `./logo_frames/frame_${n}.jpg`;
+    const n = String(idx + 1).padStart(2, "0"); // 01..12
+    return `./logo_frames/Untitled-4-${n}.jpg`;
   });
 
   preloadFrames(frames);
