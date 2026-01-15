@@ -370,13 +370,19 @@ body.dark-mode { --donut-hole: rgba(255,255,255,0.90); }
   .pub{ grid-template-columns: 1fr; }
   .pub-left{ max-width: 320px; }
 }
-/* Invert censtruct/kinstruct images in LIGHT mode (dark-mode uses normal) */
-body:not(.dark-mode) #censtruct,
-body:not(.dark-mode) #kinstruct{
-  filter: invert(1);
+
+:root{
+  --imgHue: 0deg;
 }
 
+/* Light mode: invert (since your images are tuned for dark) + follow palette hue */
+body:not(.dark-mode) #censtruct,
+body:not(.dark-mode) #kinstruct{
+  filter: invert(1) hue-rotate(var(--imgHue)) saturate(1.05);
+}
+
+/* Dark mode: optionally also hue-rotate to follow palette */
 body.dark-mode #censtruct,
 body.dark-mode #kinstruct{
-  filter: none;
+  filter: hue-rotate(var(--imgHue)) saturate(1.05);
 }
