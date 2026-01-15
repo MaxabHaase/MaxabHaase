@@ -335,7 +335,7 @@ a, .me, .meOpp, .btn {
 
 /* optional: subtle halo so the donut reads on both themes */
 .pub-metrics .altmetric-embed{
-  padding: 0.1px;
+  padding: -5px;
   border-radius: 999px;
   background: rgba(0,0,0,0.25);
 }
