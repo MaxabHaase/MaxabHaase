@@ -333,15 +333,37 @@ a, .me, .meOpp, .btn {
   align-items: center;
 }
 
-/* optional: subtle halo so the donut reads on both themes */
-.pub-metrics .altmetric-embed{
-  padding: -5px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.25);
+/* Only fill the donut hole (not around it) */
+:root { --donut-hole: rgba(255,255,255,0.72); }
+body.dark-mode { --donut-hole: rgba(255,255,255,0.90); }
+
+.altmetric-wrap{
+  position: relative;
+  display: inline-block;
+  line-height: 0;          /* kills the “sticks out below” baseline gap */
+  vertical-align: middle;
 }
-body.dark-mode .pub-metrics .altmetric-embed{
-  background: rgba(255,255,255,0.28);
+
+.altmetric-wrap::before{
+  content:"";
+  position: absolute;
+  /* inset controls how big the hole fill is */
+  inset: 24%;
+  border-radius: 50%;
+  background: var(--donut-hole);
+  z-index: 0;
+  pointer-events: none;
 }
+
+/* keep the badge above the hole fill */
+.altmetric-wrap .altmetric-embed{
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  line-height: 0;
+  vertical-align: middle;
+}
+
 
 /* mobile stack */
 @media (max-width: 520px){
