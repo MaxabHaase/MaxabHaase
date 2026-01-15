@@ -375,56 +375,15 @@ body.dark-mode { --donut-hole: rgba(255,255,255,0.90); }
   --imgHue: 0deg;
 }
 
-/* Light mode: invert (since your images are tuned for dark) + follow palette hue */
+/* Light mode: invert dark-optimized images */
 body:not(.dark-mode) #censtruct,
 body:not(.dark-mode) #kinstruct{
-  filter: invert(1) hue-rotate(var(--imgHue)) saturate(1.05);
+  filter: invert(1);
 }
 
-/* Dark mode: optionally also hue-rotate to follow palette */
+/* Dark mode: show originals */
 body.dark-mode #censtruct,
 body.dark-mode #kinstruct{
-  filter: hue-rotate(var(--imgHue)) saturate(1.05);
+  filter: none;
 }
 
-#censtruct,
-#kinstruct{
-  transition: filter 1.2s linear, opacity 1.2s linear;
-  will-change: filter;
-}
-
-.imgswap{
-  position: relative;
-  width: 720px;
-  max-width: 100%;
-}
-
-/* Make the first image define the height, second sits on top */
-.imgswap .swapimg{
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.imgswap .swapimg + .swapimg{
-  position: absolute;
-  inset: 0;
-}
-
-/* Crossfade (no blinking) */
-.swapimg{
-  opacity: 0;
-  transition: opacity 350ms linear, filter 1.2s linear;
-  will-change: opacity, filter;
-}
-.imgswap .swapimg:first-child{ opacity: 1; } /* start visible */
-
-/* Your palette-follow rules (keep these, but target the class) */
-:root{ --imgHue: 0deg; }
-
-body:not(.dark-mode) .palette-follow{
-  filter: invert(1) hue-rotate(var(--imgHue)) saturate(1.05);
-}
-
-body.dark-mode .palette-follow{
-  filter: hue-rotate(var(--imgHue)) saturate(1.05);
-}
