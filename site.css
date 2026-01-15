@@ -289,34 +289,34 @@ a, .me, .meOpp, .btn {
   opacity: 0.35;   /* lighter */
 }
 
-.pub-metrics{
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* optional: theme-aware halo so donuts look good on dark */
-.pub-metrics .altmetric-embed{
-  padding: 3px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.05);
-}
-body.dark-mode .pub-metrics .altmetric-embed{
-  background: rgba(255,255,255,0.08);
+.pubs{
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
 
 .pub{
   display: grid;
-  grid-template-columns: 220px 1fr; /* your cover width */
+  grid-template-columns: 220px 1fr;
   gap: 16px;
   align-items: start;
+  padding: 14px 0;
+}
+
+/* CSS divider between list items (valid HTML, no extra divs in <ul>) */
+.pub + .pub{
+  border-top: 1px solid var(--rule);
 }
 
 .pub-left{
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.pub-cover{
+  display: block;
+  text-decoration: none;
 }
 
 .pub-cover img{
@@ -332,3 +332,20 @@ body.dark-mode .pub-metrics .altmetric-embed{
   gap: 10px;
   align-items: center;
 }
+
+/* optional: subtle halo so the donut reads on both themes */
+.pub-metrics .altmetric-embed{
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.05);
+}
+body.dark-mode .pub-metrics .altmetric-embed{
+  background: rgba(255,255,255,0.08);
+}
+
+/* mobile stack */
+@media (max-width: 520px){
+  .pub{ grid-template-columns: 1fr; }
+  .pub-left{ max-width: 320px; }
+}
+
