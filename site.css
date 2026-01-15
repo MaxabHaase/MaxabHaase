@@ -289,15 +289,20 @@ a, .me, .meOpp, .btn {
   opacity: 0.35;   /* lighter */
 }
 
-.altmetric-wrap{
-  display: inline-flex;
+.pub-metrics{
+  margin-top: 8px;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 3px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.05); /* light mode */
+  gap: 10px;
 }
 
-body.dark-mode .altmetric-wrap{
-  background: rgba(255,255,255,0.08); /* dark mode */
+/* optional: theme-aware halo so donuts look good on dark */
+.pub-metrics .altmetric-embed{
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.05);
 }
+body.dark-mode .pub-metrics .altmetric-embed{
+  background: rgba(255,255,255,0.08);
+}
+
