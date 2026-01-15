@@ -60,6 +60,8 @@ function setAccentByIndex(i) {
 
   document.documentElement.style.setProperty("--accent", accent);
   document.documentElement.style.setProperty("--accentOpp", invertHex(accent));
+  document.documentElement.style.setProperty("--imgHue", IMG_ROT[idx] + "deg");
+
 
   localStorage.setItem("accentIndex", String(idx));
   return idx;
