@@ -264,9 +264,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const MS = 1200; // <-- change frequency here (ms)
 
   setInterval(() => {
+  img.style.opacity = "0";
+  setTimeout(() => {
     i = (i + 1) % frames.length;
     img.src = frames[i];
-  }, MS);
+    img.style.opacity = "1";
+  }, 180);
+}, MS);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -285,7 +289,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const MS = 1200; // <-- change frequency here (ms)
 
   setInterval(() => {
+  img.style.opacity = "0";
+  setTimeout(() => {
     i = (i + 1) % frames.length;
     img.src = frames[i];
-  }, MS);
+    img.style.opacity = "1";
+  }, 180);
+}, MS);
 });
