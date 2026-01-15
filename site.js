@@ -10,6 +10,37 @@ const PALETTE = [
   "#5b418c", // purple
 ];
 
+function hexToHue(hex){
+  const h = hex.replace("#", "");
+  let r = parseInt(h.slice(0,2), 16) / 255;
+  let g = parseInt(h.slice(2,4), 16) / 255;
+  let b = parseInt(h.slice(4,6), 16) / 255;
+
+  const max = Math.max(r,g,b), min = Math.min(r,g,b);
+  const d = max - min;
+
+  if (d === 0) return 0;
+
+  let hue;
+  if (max === r) hue = ((g - b) / d) % 6;
+  else if (max === g) hue = (b - r) / d + 2;
+  else hue = (r - g) / d + 4;
+
+  hue = hue * 60;
+  if (hue < 0) hue += 360;
+  return hue;
+}
+
+function normDeg(deg){
+  deg = ((deg % 360) + 360) % 360;
+  if (deg > 180) deg -= 360; // keep it in [-180, 180]
+  return deg;
+}
+
+const PALETTE_HUES = PALETTE.map(hexToHue);
+const BASE_HUE = PALETTE_HUES[0];
+const IMG_ROT = PALETTE_HUES.map(h => normDeg(h - BASE_HUE)); // degrees per palette index
+
 function invertHex(hex) {
   const h = hex.replace("#", "");
   const r = parseInt(h.slice(0, 2), 16);
