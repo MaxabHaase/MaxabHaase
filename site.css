@@ -392,3 +392,39 @@ body.dark-mode #kinstruct{
   transition: filter 1.2s linear, opacity 1.2s linear;
   will-change: filter;
 }
+
+.imgswap{
+  position: relative;
+  width: 720px;
+  max-width: 100%;
+}
+
+/* Make the first image define the height, second sits on top */
+.imgswap .swapimg{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.imgswap .swapimg + .swapimg{
+  position: absolute;
+  inset: 0;
+}
+
+/* Crossfade (no blinking) */
+.swapimg{
+  opacity: 0;
+  transition: opacity 350ms linear, filter 1.2s linear;
+  will-change: opacity, filter;
+}
+.imgswap .swapimg:first-child{ opacity: 1; } /* start visible */
+
+/* Your palette-follow rules (keep these, but target the class) */
+:root{ --imgHue: 0deg; }
+
+body:not(.dark-mode) .palette-follow{
+  filter: invert(1) hue-rotate(var(--imgHue)) saturate(1.05);
+}
+
+body.dark-mode .palette-follow{
+  filter: hue-rotate(var(--imgHue)) saturate(1.05);
+}
