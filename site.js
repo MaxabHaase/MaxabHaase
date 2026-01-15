@@ -246,57 +246,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const a = document.getElementById("cenA");
-  const b = document.getElementById("cenB");
-  if (!a || !b) return;
-
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  const frames = ["./logo_frames/CENStruct-01.png", "./logo_frames/CENStruct-02.png"];
-  frames.forEach(src => { const im = new Image(); im.src = src; });
-
-  let i = 0;
-  let showingA = true;
-  const MS = 1200;
-
-  setInterval(() => {
-    i = (i + 1) % frames.length;
-
-    const front = showingA ? a : b;
-    const back  = showingA ? b : a;
-
-    // load next into the hidden one, then crossfade
-    back.src = frames[i];
-    back.style.opacity = "1";
-    front.style.opacity = "0";
-
-    showingA = !showingA;
-  }, MS);
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const img = document.getElementById("kinstruct");
+function startTwoFrameFlip(imgId, frame1, frame2, ms = 1200) {
+  const img = document.getElementById(imgId);
   if (!img) return;
 
-  // respect reduced motion
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const frames = ["./logo_frames/KinStruct-01.png", "./logo_frames/KinStruct-02.png"];
-
-  // preload
+  const frames = [frame1, frame2];
   frames.forEach((src) => { const im = new Image(); im.src = src; });
 
   let i = 0;
-  const MS = 1200; // <-- change frequency here (ms)
-
   setInterval(() => {
-  img.style.opacity = "0";
-  setTimeout(() => {
-    i = (i + 1) % frames.length;
+    i = (i + 1) % 2;
     img.src = frames[i];
-    img.style.opacity = "1";
-  }, 180);
-}, MS);
+  }, ms);
+}
+document.addEventListener("DOMContentLoaded", () => {
+  startTwoFrameFlip("censtruct", "./logo_frames/CENStruct-01.png", "./logo_frames/CENStruct-02.png", 1200);
+  startTwoFrameFlip("kinstruct", "./logo_frames/KinStruct-01.png", "./logo_frames/KinStruct-02.png", 1200);
 });
