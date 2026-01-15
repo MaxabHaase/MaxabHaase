@@ -370,4 +370,13 @@ body.dark-mode { --donut-hole: rgba(255,255,255,0.90); }
   .pub{ grid-template-columns: 1fr; }
   .pub-left{ max-width: 320px; }
 }
+/* Invert censtruct/kinstruct images in LIGHT mode (dark-mode uses normal) */
+body:not(.dark-mode) #censtruct,
+body:not(.dark-mode) #kinstruct{
+  filter: invert(1);
+}
 
+body.dark-mode #censtruct,
+body.dark-mode #kinstruct{
+  filter: none;
+}
