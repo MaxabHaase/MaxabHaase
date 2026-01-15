@@ -375,13 +375,11 @@ body.dark-mode { --donut-hole: rgba(255,255,255,0.90); }
   --imgHue: 0deg;
 }
 
-/* Light mode: invert dark-optimized images */
 body:not(.dark-mode) #censtruct,
 body:not(.dark-mode) #kinstruct{
   filter: invert(1);
 }
 
-/* Dark mode: show originals */
 body.dark-mode #censtruct,
 body.dark-mode #kinstruct{
   filter: none;
