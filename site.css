@@ -276,3 +276,15 @@ a, .me, .meOpp, .btn {
   color: inherit;
   font: inherit;
 }
+
+.divider{
+  height: 2px;
+  background: var(--rule);
+  margin: 14px 0;
+  opacity: 0.65;
+}
+
+.divider-thin{
+  height: 1px;
+  opacity: 0.35;   /* lighter */
+}
