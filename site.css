@@ -306,3 +306,29 @@ body.dark-mode .pub-metrics .altmetric-embed{
   background: rgba(255,255,255,0.08);
 }
 
+.pub{
+  display: grid;
+  grid-template-columns: 220px 1fr; /* your cover width */
+  gap: 16px;
+  align-items: start;
+}
+
+.pub-left{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pub-cover img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+}
+
+.pub-metrics{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
