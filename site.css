@@ -288,3 +288,16 @@ a, .me, .meOpp, .btn {
   height: 1px;
   opacity: 0.35;   /* lighter */
 }
+
+.altmetric-wrap{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.05); /* light mode */
+}
+
+body.dark-mode .altmetric-wrap{
+  background: rgba(255,255,255,0.08); /* dark mode */
+}
