@@ -386,3 +386,9 @@ body.dark-mode #censtruct,
 body.dark-mode #kinstruct{
   filter: hue-rotate(var(--imgHue)) saturate(1.05);
 }
+
+#censtruct,
+#kinstruct{
+  transition: filter 1.2s linear, opacity 1.2s linear;
+  will-change: filter;
+}
