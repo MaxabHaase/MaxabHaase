@@ -406,8 +406,22 @@ body.dark-mode #kinstruct{
 .pub-citation {
   flex: 1 1 auto;
   min-width: 0;
+  display: grid;
+  gap: 0.12rem;
+  line-height: 1.35;
 }
-
+.pub-authors,
+.pub-title,
+.pub-journal {
+  display: block;
+}
+/* optional visual hierarchy */
+.pub-authors { font-size: 0.98rem; }
+.pub-journal { opacity: 0.9; }
+.pub-title a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
 .pub-metrics {
   flex: 0 0 auto;
   display: inline-flex;
@@ -434,4 +448,10 @@ body.dark-mode #kinstruct{
     margin-top: 0.35rem;
   }
 }
+
+
+
+
+
+
 
